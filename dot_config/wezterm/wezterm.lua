@@ -16,6 +16,11 @@ config.color_scheme = "Tokyo Night"
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 20
 -- config.window_decorations = "RESIZE"
+config.automatically_reload_config = true
+
+-- font
+config.font_size = 13.0
+config.font = wezterm.font("HackGen Console NF")
 
 -- and finally, return the configuration to wezterm
 return config

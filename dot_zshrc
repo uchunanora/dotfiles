@@ -1,92 +1,18 @@
-## . ~/z/z.sh
+# PATH
+source ~/.config/zsh/path.zsh
 
-typeset -U path PATH
-path=(
-  /opt/homebrew/bin(N-/)
-  /opt/homebrew/sbin(N-/)
-  /usr/bin
-  /usr/sbin
-  /bin
-  /sbin
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  /Library/Apple/usr/bin
-)
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH="/Users/so-sawai/.local/bin:$PATH"
-export PATH="/usr/local/share/dotnet:$PATH"
-export XDG_CONFIG_HOME="$HOME/.config"
-export NVM_DIR="$HOME/.nvm"
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-nvm use
+# Prompt
+source ~/.config/zsh/prompt.zsh
 
+# Aliases
+source ~/.config/zsh/aliases.zsh
 
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
-setopt PROMPT_SUBST ; PS1='╭─ %F{blue}%~%f %F{red}$(__git_ps1 "(%s)")%f
-╰─%b(*'\''-'\'') < %b'
+# Plugins
+source ~/.config/zsh/plugins.zsh
 
-# alias
-alias c='clear'
-
-# eza
-alias ls='eza -lh --group-directories-first --icons'
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
-alias lta='lt -a'
-
-# cd
-chpwd(){
-  lsa
-}
-
-# Git Series
-## Git Prompt
-source ~/.zsh/git-prompt.sh
-
-## git-completionの読み込み
-fpath=(~/.zsh $fpath)
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-autoload -Uz compinit && compinit
-
-# Suggest
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Peco
-function peco-select-history() {
-    =$(\history -n -r 1 | peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-# fzf
-source <(fzf --zsh)
-
-# zoxide
-eval "$(zoxide init zsh --hook prompt )"
-
-# yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-# claude
-alias cc='claude --mcp-config=/Users/so-sawai/.claude/.mcp.json'
+# Functions
+source ~/.config/zsh/functions.zsh
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/so-sawai/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# WezTerm CLI
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"

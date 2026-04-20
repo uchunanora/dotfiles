@@ -1,6 +1,9 @@
 # clear
 alias c='clear'
 
+# bat
+alias cat='bat --theme="Nord"'
+
 # eza
 alias ls='eza -lh --group-directories-first --icons'
 alias lsa='ls -a'

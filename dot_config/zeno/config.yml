@@ -1,0 +1,7 @@
+snippets:
+  - keyword: c
+    snippet: clear
+
+  - keyword: cc
+    snippet: claude --mcp-config=$HOME/.claude/.mcp.json
+

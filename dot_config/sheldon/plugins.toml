@@ -33,6 +33,3 @@ github = 'marlonrichert/zsh-autocomplete'
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ["defer"]
-
-[plugins.zsh-abbr]
-github = "olets/zsh-abbr"

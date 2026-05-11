@@ -1,4 +1,6 @@
 {
+  "outputStyle": "Explanatory",
+  "cleanupPeriodDays": 9999,
   "env": {
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
@@ -6,6 +8,7 @@
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
   },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(find:*)",
@@ -62,7 +65,11 @@
     ],
     "sandbox": {
       "enabled": true,
-      "autoAllowBashIfSandboxed": true
+      "autoAllowBashIfSandboxed": true,
+      "excludedCommands": [
+        "git",
+        "docker"
+      ]
     }
   },
   "hooks": {
@@ -95,5 +102,6 @@
       }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "theme": "dark-ansi"
 }

@@ -1,6 +1,12 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "language": "japanese",
   "outputStyle": "Explanatory",
   "cleanupPeriodDays": 9999,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "env": {
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
@@ -9,59 +15,38 @@
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
   },
   "includeCoAuthoredBy": false,
+  "useAutoModeDuringPlan": true,
   "permissions": {
-    "allow": [
-      "Bash(find:*)",
-      "Bash(mkdir:*)",
-      "Bash(touch:*)",
-      "Bash(ls:*)",
-      "Bash(tree:*)",
-      "Bash(mv:*)",
-      "Bash(cp:*)",
-      "Bash(cat:*)",
-      "Bash(grep:*)",
-      "Bash(find:*)",
-      "Bash(echo:*)",
-      "Bash(do)",
-      "Bash(then)",
-      "Bash(else)",
-      "Bash(fi)",
-      "Bash(done)",
-      "Bash(for:*)",
-      "Bash(npm install:*)",
-      "Bash(npm run dev:*)",
-      "Bash(npm run build:*)",
-      "Bash(npm run tsc:*)",
-      "Bash(npm exec:*)",
-      "Bash(npx:*)",
-      "Bash(npm run test:*)",
-      "Bash(npm run lint)",
-      "Bash(npm run lint:*)",
-      "Bash(npm run format:*)",
-      "Bash(npm ls:*)",
-      "Bash(curl:*)",
-      "Bash(pkill:*)",
-      "Bash(true)"
-    ],
+    "defaultMode": "auto",
     "deny": [
-      "Bash(sudo:*)",
-      "Bash(git reset:*)",
-      "Bash(git rebase:*)",
-      "Read(**/*token*)",
-      "Read(**/*key*)",
-      "Write(**/secrets/**)",
-      "Read(.env)",
-      "Read(.env.*)",
-      "Read(**/.env)",
-      "Read(**/.env.*)",
-      "Write(.env)",
-      "Write(.env.*)",
-      "Write(**/.env)",
-      "Write(**/.env.*)",
-      "Edit(.env)",
-      "Edit(.env.*)",
-      "Edit(**/.env)",
-      "Edit(**/.env.*)"
+      "Bash(curl * | bash *)",
+      "Bash(wget * | bash *)",
+      "Bash(npm publish *)",
+      "Bash(pnpm publish *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~/*)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(docker push *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Bash(terraform import *)"
+    ],
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(terraform fmt *)",
+      "Bash(terraform validate *)",
+      "Bash(terraform plan *)",
+      "Bash(npm test)",
+      "Bash(npm run test)",
+      "Bash(npm run lint)",
+      "Bash(npm run typecheck)",
+      "Bash(pnpm test)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm typecheck)"
     ],
     "sandbox": {
       "enabled": true,
@@ -102,6 +87,7 @@
       }
     }
   },
-  "effortLevel": "high",
+  "model": "opus",
+  "effortLevel": "xhigh",
   "theme": "dark-ansi"
 }

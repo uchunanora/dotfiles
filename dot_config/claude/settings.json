@@ -70,7 +70,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline-command.sh"
+    "command": "bash ~/.config/claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "git-actions@cc-plugins": true,
@@ -94,6 +94,16 @@
   },
   "outputStyle": "Explanatory",
   "language": "japanese",
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "ﾁﾋﾟﾁﾋﾟ",
+      "ﾁｬﾊﾟﾁｬﾊﾟ",
+      "ﾄﾞｩﾋﾞﾄﾞｩﾋﾞ",
+      "ﾀﾞﾊﾞﾀﾞﾊﾞ",
+      "ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ"
+    ]
+  },
   "effortLevel": "xhigh",
   "theme": "dark-ansi",
   "skipAutoPermissionPrompt": true,

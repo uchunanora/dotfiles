@@ -48,14 +48,30 @@
     "sandbox": {
       "enabled": true,
       "autoAllowBashIfSandboxed": true,
-      "excludedCommands": [
-        "git",
-        "docker"
-      ]
+      "excludedCommands": ["git", "docker"]
     }
   },
   "model": "opus",
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/claude/hooks/block-destructive-ops.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.config/claude/hooks/block-secret-commit.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.config/claude/hooks/block-destructive-sql.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",
@@ -97,13 +113,7 @@
   "language": "japanese",
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "ﾁﾋﾟﾁﾋﾟ",
-      "ﾁｬﾊﾟﾁｬﾊﾟ",
-      "ﾄﾞｩﾋﾞﾄﾞｩﾋﾞ",
-      "ﾀﾞﾊﾞﾀﾞﾊﾞ",
-      "ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ"
-    ]
+    "verbs": ["ﾁﾋﾟﾁﾋﾟ", "ﾁｬﾊﾟﾁｬﾊﾟ", "ﾄﾞｩﾋﾞﾄﾞｩﾋﾞ", "ﾀﾞﾊﾞﾀﾞﾊﾞ", "ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ"]
   },
   "effortLevel": "xhigh",
   "theme": "dark-ansi",

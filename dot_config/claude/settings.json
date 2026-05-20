@@ -48,7 +48,10 @@
     "sandbox": {
       "enabled": true,
       "autoAllowBashIfSandboxed": true,
-      "excludedCommands": ["git", "docker"]
+      "excludedCommands": [
+        "git",
+        "docker"
+      ]
     }
   },
   "model": "opus",
@@ -93,7 +96,8 @@
     "superpowers@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "andrej-karpathy-skills@karpathy-skills": true,
-    "commit-commands@claude-plugins-official": true
+    "commit-commands@claude-plugins-official": true,
+    "frontend-design@claude-code-plugins": true
   },
   "extraKnownMarketplaces": {
     "cc-plugins": {
@@ -107,13 +111,25 @@
         "source": "github",
         "repo": "forrestchang/andrej-karpathy-skills"
       }
+    },
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
     }
   },
   "outputStyle": "Explanatory",
   "language": "japanese",
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["ﾁﾋﾟﾁﾋﾟ", "ﾁｬﾊﾟﾁｬﾊﾟ", "ﾄﾞｩﾋﾞﾄﾞｩﾋﾞ", "ﾀﾞﾊﾞﾀﾞﾊﾞ", "ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ"]
+    "verbs": [
+      "ﾁﾋﾟﾁﾋﾟ",
+      "ﾁｬﾊﾟﾁｬﾊﾟ",
+      "ﾄﾞｩﾋﾞﾄﾞｩﾋﾞ",
+      "ﾀﾞﾊﾞﾀﾞﾊﾞ",
+      "ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ ﾌﾞﾝ"
+    ]
   },
   "effortLevel": "xhigh",
   "theme": "dark-ansi",

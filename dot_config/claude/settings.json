@@ -85,6 +85,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/claude/hooks/startup-tips.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
